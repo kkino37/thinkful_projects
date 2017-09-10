@@ -39,7 +39,7 @@ def recommendations(a_dict):
   return drink
  
 if __name__ == '__main__':
-    print(bartender_function())
+    bartender_function()
     print(recommendations(responses))
     
 # Test Results 
