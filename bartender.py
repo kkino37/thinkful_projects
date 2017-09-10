@@ -20,6 +20,10 @@ responses = {}
 
 categories = ['strong', 'salty', 'bitter', 'sweet', 'fruity']
 
+adjectives = ['spicy', 'sassy', 'classy']
+nouns = ['dawg', 'cat', 'mouse']
+
+
 # Part 1
 def bartender_function():
   for i in range(0, len(categories)):
@@ -37,14 +41,41 @@ def recommendations(a_dict):
     if a_dict[categories[i]] == 'True':
       drink.append((random.choice(ingredients[categories[i]])))
   return drink
- 
+
+# Challenge - Provide Drink Name
+def drink_name():
+    name = random.choice(adjectives) + ' ' + random.choice(nouns)
+    return name
+    
+# Part 3 - Provide a Main Function to Run Results from Bash
 if __name__ == '__main__':
     bartender_function()
     print(recommendations(responses))
+    print(drink_name())
     
+    # Challenge - Ask for more than one drink 
+    answer = input('Do you want another drink?: Y/N ')
+    if answer.upper() == 'N' or answer.lower() == "no":
+      print('Thank you, bye!')
+    else:
+      while answer.upper() == 'Y' or answer.lower() == 'yes':
+        bartender_function()
+        print(recommendations(responses))
+        print(drink_name())
+        answer = input('Do you want another drink? Y/N ')
+      else:
+        print('Thank you, bye!')
+  
+
+
+
+
 # Test Results 
+'''
 print(bartender_function())
 print(recommendations(responses))
+print(drink_name())
+'''
 
     
 ''' # Part 2 - Long Method #    
